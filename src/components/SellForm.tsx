@@ -39,7 +39,7 @@ function PhotoInput({ error }: { error?: string }) {
             }}
             className="text-sm file:mr-3 file:rounded-lg file:border-0 file:bg-indigo-50 file:px-4 file:py-2 file:font-semibold file:text-indigo-700 hover:file:bg-indigo-100"
           />
-          <p className="text-sm text-slate-500">Optional. JPG, PNG or WebP, up to 5 MB.</p>
+          <p className="text-sm text-slate-500">Optional. JPG, PNG or WebP, maxim 5 MB.</p>
         </div>
       </div>
       <FieldError message={error} />
@@ -144,7 +144,7 @@ export function SellForm() {
             type="email"
             name="sellerContact"
             defaultValue={values.sellerContact}
-            placeholder="you@student.university.ro"
+            placeholder="you@mail.com"
             className={inputClass}
           />
           <FieldError message={errors.sellerContact} />

@@ -6,6 +6,7 @@ export const CATEGORIES = [
   { value: "furniture", label: "Furniture & Dorm", emoji: "🪑" },
   { value: "clothing", label: "Clothing", emoji: "👕" },
   { value: "sports", label: "Sports & Bikes", emoji: "🚲" },
+  { value: "tikets", label: "Tickets", emoji:"🎟️"},
   { value: "other", label: "Other", emoji: "📦" },
 ] as const;
 
