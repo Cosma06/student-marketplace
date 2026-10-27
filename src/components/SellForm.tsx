@@ -46,7 +46,25 @@ function PhotoInput({ error }: { error?: string }) {
     </label>
   );
 }
+function TitleInput({ defaultValue, error }: { defaultValue?: string; error?: string }) {
+  const [length, setLength] = useState(defaultValue?.length ?? 0);
 
+  return (
+    <label className="block space-y-1">
+      <span className="font-medium">Title</span>
+      <input
+        name="title"
+        defaultValue={defaultValue}
+        placeholder="e.g. Calculus textbook, 2nd edition"
+        maxLength={100}
+        className={inputClass}
+        onChange={(e) => setLength(e.target.value.length)}
+      />
+      <p className="text-right text-sm text-slate-500">{length} / 100</p>
+      <FieldError message={error} />
+    </label>
+  );
+}
 export function SellForm() {
   const [state, formAction, pending] = useActionState(createListing, { attempt: 0 } as SellFormState);
   const errors = state.errors ?? {};
@@ -61,18 +79,7 @@ export function SellForm() {
     >
       <PhotoInput error={errors.photo} />
 
-      <label className="block space-y-1">
-        <span className="font-medium">Title</span>
-        <input
-          name="title"
-          defaultValue={values.title}
-          placeholder="e.g. Calculus textbook, 2nd edition"
-          maxLength={100}
-          className={inputClass}
-        />
-        <FieldError message={errors.title} />
-      </label>
-
+            <TitleInput defaultValue={values.title} error={errors.title} />
       <label className="block space-y-1">
         <span className="font-medium">Description</span>
         <textarea
